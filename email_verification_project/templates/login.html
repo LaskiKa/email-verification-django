@@ -17,7 +17,8 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
 
 {% block content %}
 
-<form>
+<form class="h-auto gradient-custom" method="post">
+{% csrf_token %}
 <section class="vh-100 gradient-custom">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -31,12 +32,12 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
               <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
               <div class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                <input type="text" id="typeEmailX" name="email" class="form-control form-control-lg" />
                 <label class="form-label" for="typeEmailX">Email</label>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                <input type="password" id="typePasswordX" name="password" class="form-control form-control-lg" />
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>
 

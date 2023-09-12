@@ -28,6 +28,21 @@ class LoginView(View):
                       'login.html',
                       )
 
+    def post(self, request):
+        user_mail = request.POST.get("email")
+        user_password = request.POST.get("password")
+
+
+        profile_obj = Profile.objects.filter(user__email=user_mail).first()
+
+        if profile_obj.is_verified:
+            return HttpResponse(f"User is verified - you can login {profile_obj}")
+
+        else:
+            return HttpResponse("User not verified - check your mail box")
+
+
+
 class RegisterView(View):
     def get(self, request):
         return render(request,
@@ -35,7 +50,6 @@ class RegisterView(View):
                       )
 
     def post(self, request):
-        print(request.POST)
         username = request.POST.get("user_name")
         user_surname = request.POST.get("user_suername")
         user_mail = request.POST.get("email")
