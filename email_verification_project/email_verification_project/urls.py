@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from email_verification_app.views import BaseView, HomeView, LoginView, RegisterView, TokenSentView, SuccesView, VerifyView
+from email_verification_app.views import BaseView, HomeView, LoginView, RegisterView, TokenSentView, SuccesView, VerifyView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,7 @@ urlpatterns = [
     path('base/', BaseView.as_view(), name='base'),
     path('home/', HomeView.as_view(), name='home'),
     path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
     path('token/', TokenSentView.as_view(), name='token'),
     path('success/', SuccesView.as_view(), name='success'),
