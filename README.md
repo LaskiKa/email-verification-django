@@ -33,8 +33,6 @@ typing_extensions==4.7.1
 urllib3==2.0.4
 ```
 
-## Project installation
-
 ## Instalation & configuration:
 
 ### Step 1: Install PostgresSQL locally.
@@ -90,7 +88,7 @@ python manage.py migrate
 python manage.py create superuser
 python manage.py runserver localhost:8000
 ```
-### Customer journey
+## Customer journey
 
 1. As user, I'm registering to application http://127.0.0.1:8000/register/. To register I have to fill the labels and click register button.
 
