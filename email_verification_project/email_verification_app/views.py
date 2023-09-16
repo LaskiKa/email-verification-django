@@ -37,7 +37,7 @@ class LoginView(View):
 
         profile_obj = Profile.objects.filter(user__email=user_mail).first()
 
-        if profile_obj == None:
+        if profile_obj is None:
             messages.warning(request, "Wrong mail or password, try again.")
             return render(request,
                           'login.html',
