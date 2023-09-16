@@ -1,5 +1,6 @@
 import uuid
 from django.conf import settings
+from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -28,6 +29,41 @@ class LoginView(View):
                       'login.html',
                       )
 
+    def post(self, request):
+        user_mail = request.POST.get("email")
+        user_password = request.POST.get("password")
+
+
+
+        profile_obj = Profile.objects.filter(user__email=user_mail).first()
+
+        if profile_obj == None:
+            messages.warning(request, "Wrong mail or password, try again.")
+            return render(request,
+                          'login.html',
+                          )
+        if profile_obj.is_verified:
+
+            username = profile_obj.user.username
+            user = authenticate(username=username, password=user_password)
+            if user.is_authenticated:
+                login(self.request, user)
+                return render(request,
+                              'home.html')
+
+
+        else:
+            messages.warning(request, "Wrong mail or password, try again.")
+            return render(request,
+                          'login.html',
+                          )
+
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect('/home')
+
+
 class RegisterView(View):
     def get(self, request):
         return render(request,
@@ -35,7 +71,6 @@ class RegisterView(View):
                       )
 
     def post(self, request):
-        print(request.POST)
         username = request.POST.get("user_name")
         user_surname = request.POST.get("user_suername")
         user_mail = request.POST.get("email")

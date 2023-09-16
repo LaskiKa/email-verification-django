@@ -1,5 +1,33 @@
 {% extends "base.html" %}
 
+{% block css %}
+<style>
+    .gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+  }
+</style>
+{% endblock %}
+
 {% block content %}
-Działa Home
+
+<div class="vh-100 gradient-custom">
+
+    <h1> Jesteś zalogowany jako {{user}} </h1>
+
+    <div>Jesteś w Home</div>
+
+
+    {% if user.is_anonymous %}
+    <a class="btn btn-outline-light btn-lg px-5" href="{% url 'login' %}">Login</a>
+    {% else %}
+    <a class="btn btn-outline-light btn-lg px-5" href="{% url 'logout' %}">Logout</a>
+    {% endif %}
+</div>
 {% endblock %}
