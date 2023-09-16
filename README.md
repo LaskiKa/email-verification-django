@@ -5,9 +5,9 @@
 Sending verification email to new user.
 Login is possible after verification.
 
-Framework: Django
-Authentication library: django-allauth
-Database: Postgres
+- Framework: Django
+- Authentication library: django-allauth
+- Database: Postgres
 
 ### Requirements:
 
