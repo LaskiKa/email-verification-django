@@ -71,14 +71,20 @@ class RegisterView(View):
                       )
 
     def post(self, request):
+        """Do poprawy mechanizm weryfikacji podczas podawania danych!!!
+        Postawiony static folder - z js - dodać tam walidację po stornie klienta
+        """
+
         username = request.POST.get("user_name")
         user_surname = request.POST.get("user_suername")
-        user_mail = request.POST.get("email")
+        user_mail = str(request.POST.get("email"))
         user_password = request.POST.get("password")
-        # try:
+
         if User.objects.filter(email=user_mail).first():
             messages.success(request, "Account already exist, try to login")
             return redirect('/register')
+
+        print(User.objects.filter(email=user_mail).first())
 
         usr_obj = User(username=f'{username}_{user_surname}', email=user_mail)
         usr_obj.set_password(user_password)

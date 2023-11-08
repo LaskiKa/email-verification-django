@@ -33,22 +33,22 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
               <p class="text-white-50 mb-5">Fill up register template</p>
 
                 <div class="form-outline form-white mb-4">
-                <input type="text" name="user_name" class="form-control form-control-lg" />
+                <input type="text" name="user_name" id="user_name" class="form-control form-control-lg" oninput="nameValidation()" required />
                 <label class="form-label" for="typeEmailX">Name</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                <input type="text" name="user_suername" class="form-control form-control-lg" />
+                <input type="text" name="user_suername" id="user_surname" class="form-control form-control-lg" oninput="surnameValidation()" required />
                 <label class="form-label" for="typeEmailX">Surname</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                <input type="text" id="typeEmailX" name="email" class="form-control form-control-lg" />
+                <input type="email" id="typeEmailX" name="email" class="form-control form-control-lg" required />
                 <label class="form-label" for="typeEmailX">Email</label>
                 </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" name="password" class="form-control form-control-lg" />
+                <input type="password" id="typePasswordX" name="password" class="form-control form-control-lg" required />
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>
 
@@ -59,6 +59,7 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
               {% endif %}
 
               <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+              <button class="btn btn-outline-light btn-lg px-5" onclick="myFunction()" >RegisterV</button>
             </div>
             <div>
               <p class="mb-0">Already have account? <a href="{% url 'login' %}" class="text-white-50 fw-bold">Login</a>
