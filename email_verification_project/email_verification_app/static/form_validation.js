@@ -10,12 +10,10 @@ const nameValidation = () => {
   console.log(nameInput.value);
 
   if(!isMin) {
-    console.log(nameInput);
     nameInput.classList.add("bg-danger", "text-white");
   }
 
   if(isMin) {
-    console.log(nameInput);
     nameInput.classList.replace("bg-danger", "bg-success");
   }
 }
@@ -24,8 +22,6 @@ const surnameValidation = () => {
   const surnamenameInput = document.querySelector("#user_surname");
   const isMin = surnamenameInput.value.length > 1;
 
-  console.log(isMin);
-  console.log(surnamenameInput.value);
 
   if(!isMin) {
     surnamenameInput.classList.add("bg-danger", "text-white");
