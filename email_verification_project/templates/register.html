@@ -18,7 +18,7 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
 {% block content %}
 <div class="h-auto gradient-custom">
 
-<form class="h-auto gradient-custom" method="post">
+<form class="h-auto gradient-custom" method="post" onmouseenter="formValidation">
 {% csrf_token %}
 <section class="h-auto gradient-custom">
   <div class="container py-5 h-100">
@@ -58,7 +58,7 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
               {% endfor %}
               {% endif %}
 
-              <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+              <button class="btn btn-outline-light btn-lg px-5" id="register-button" type="submit" disabled="disabled">Register</button>
               <button class="btn btn-outline-light btn-lg px-5" onclick="myFunction()" >RegisterV</button>
             </div>
             <div>
