@@ -71,9 +71,6 @@ class RegisterView(View):
                       )
 
     def post(self, request):
-        """Do poprawy mechanizm weryfikacji podczas podawania danych!!!
-        Postawiony static folder - z js - dodać tam walidację po stornie klienta
-        """
 
         username = request.POST.get("user_name")
         user_surname = request.POST.get("user_suername")

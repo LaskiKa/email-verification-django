@@ -1,3 +1,9 @@
+const form = document.querySelector("#register-form")
+const nameInputAutoFill = document.querySelector("#user_name");
+const passwordInputAutoFill = document.querySelector("#typePasswordX");
+const surnameInputAutoFill = document.querySelector("#user_surname");
+const emailInputAutoFill = document.querySelector("#typeEmailX");
+
 const formValidation = () => {
   const registerButton = document.querySelector("#register-button")
   const nameInput = document.querySelector("#user_name");
